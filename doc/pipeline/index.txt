@@ -19,6 +19,12 @@ Readers & Writers
    drivers.faux.writer
    drivers.csardb.reader
    drivers.csar.reader
+   drivers.nitf.reader
+   drivers.nitf.writer
+   drivers.oci.reader
+   drivers.oci.writer
+   drivers.p2g.writer
+   drivers.qfit.reader
 
 
 Filters
