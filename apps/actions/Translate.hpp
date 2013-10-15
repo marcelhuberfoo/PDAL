@@ -32,13 +32,59 @@
 * OF SUCH DAMAGE.
 ****************************************************************************/
 
+#ifndef PDAL_APP_ACTION_TRANSLATE_HPP
+#define PDAL_APP_ACTION_TRANSLATE_HPP
 
-#include "actions/Translate.hpp"
+#include <pdal/FileUtils.hpp>
 
+#include <pdal/drivers/las/Reader.hpp>
+#include <pdal/drivers/las/Writer.hpp>
 
+#include <pdal/filters/Cache.hpp>
+#include <pdal/filters/Chipper.hpp>
+#include <pdal/filters/Crop.hpp>
+#include <pdal/filters/InPlaceReprojection.hpp>
+#include <pdal/filters/Scaling.hpp>
+#include <pdal/SpatialReference.hpp>
+#include <pdal/Bounds.hpp>
 
-int main(int argc, char* argv[])
+#include "AppSupport.hpp"
+#include "Application.hpp"
+
+#define SEPARATORS ",| "
+
+#include <boost/tokenizer.hpp>
+typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
+
+using namespace pdal;
+namespace po = boost::program_options;
+
+class PDAL_DLL Translate : public Application
 {
-    Translate app(argc, argv);
-    return app.run();
-}
+public:
+    Translate(int argc, char* argv[]);
+    int execute();
+
+private:
+    void addSwitches();
+    void validateSwitches();
+
+    
+    Stage* makeReader(Options readerOptions);
+    void forwardMetadata(Options & options, Metadata metadata);
+
+    std::string m_inputFile;
+    std::string m_outputFile;
+    bool m_bCompress;
+    boost::uint64_t m_numPointsToWrite; 
+    boost::uint64_t m_numSkipPoints;
+    pdal::SpatialReference m_input_srs;
+    pdal::SpatialReference m_output_srs;
+    pdal::Bounds<double> m_bounds;
+    std::string m_wkt;
+    std::string m_scales;
+    std::string m_offsets;
+    bool m_bForwardMetadata;
+};
+
+#endif

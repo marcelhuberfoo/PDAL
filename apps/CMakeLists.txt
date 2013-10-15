@@ -27,10 +27,26 @@ set(PDAL_UTILITY pdal)
 set(PDALINFO pdalinfo)
 set(PCPIPELINE pcpipeline)
 set(PCEQUAL pcequal)
+set(PDAL_KERNEL pdal_kernel)
 
-set(COMMON_APP_SOURCES Application.cpp Application.hpp AppSupport.cpp AppSupport.hpp)
+set(PDAL_KERNEL_SOURCES 
+    Application.cpp 
+    Application.hpp 
+    AppSupport.cpp 
+    AppSupport.hpp
+    actions/Info.hpp
+    actions/Info.cpp
+    actions/Pipeline.hpp
+    actions/Pipeline.cpp
+    actions/Query.hpp
+    actions/Query.cpp
+    actions/Translate.hpp
+    actions/Translate.cpp
 
-set(PDAL_UTILITIES )
+)
+
+add_library(${PDAL_KERNEL} SHARED ${PDAL_KERNEL_SOURCES} )
+target_link_libraries(${PDAL_KERNEL} ${Boost_LIBRARIES} ${PDAL_LIB_NAME})
 
 #------------------------------------------------------------------------------
 # Configure build targets
@@ -45,26 +61,26 @@ link_directories(${Boost_LIBRARY_DIRS})
 # Build pdalinfo
 if(PDALINFO)
     list(APPEND PDAL_UTILITIES ${PDALINFO})
-    add_executable(${PDALINFO} pdalinfo.cpp ${COMMON_APP_SOURCES})
-    target_link_libraries(${PDALINFO} ${PDAL_LIB_NAME} ${Boost_LIBRARIES})
+    add_executable(${PDALINFO} pdalinfo.cpp )
+    target_link_libraries(${PDALINFO} ${PDAL_KERNEL})
 endif(PDALINFO)
 
 if(PDAL_UTILITY)
     list(APPEND PDAL_UTILITIES ${PDAL_UTILITY})
-    add_executable(${PDAL_UTILITY} pdal.cpp ${COMMON_APP_SOURCES})
-    target_link_libraries(${PDAL_UTILITY} ${PDAL_LIB_NAME} ${Boost_LIBRARIES} )
+    add_executable(${PDAL_UTILITY} pdal.cpp)
+    target_link_libraries(${PDAL_UTILITY} ${PDAL_KERNEL})
 endif()
 
 if(PCPIPELINE)
     list(APPEND PDAL_UTILITIES ${PCPIPELINE})
-    add_executable(${PCPIPELINE} pcpipeline.cpp ${COMMON_APP_SOURCES})
-    target_link_libraries(${PCPIPELINE} ${PDAL_LIB_NAME} ${Boost_LIBRARIES} )
+    add_executable(${PCPIPELINE} pcpipeline.cpp )
+    target_link_libraries(${PCPIPELINE} ${PDAL_KERNEL} )
 endif()
 
 if(PCEQUAL)
     list(APPEND PDAL_UTILITIES ${PCEQUAL})
-    add_executable(${PCEQUAL} pcequal.cpp ${COMMON_APP_SOURCES})
-    target_link_libraries(${PCEQUAL} ${PDAL_LIB_NAME} ${Boost_LIBRARIES} )
+    add_executable(${PCEQUAL} pcequal.cpp )
+    target_link_libraries(${PCEQUAL} ${PDAL_KERNEL} )
 endif()
 
 #------------------------------------------------------------------------------

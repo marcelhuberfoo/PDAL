@@ -75,7 +75,7 @@ public:
 //    --version
 //    --timer
 //
-class Application
+class PDAL_DLL Application
 {
 public:
     // call this, to start the machine
