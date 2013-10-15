@@ -48,7 +48,7 @@
 #include <pdal/SpatialReference.hpp>
 #include <pdal/Bounds.hpp>
 
-#include "AppSupport.hpp"
+#include "Support.hpp"
 #include "Application.hpp"
 
 #define SEPARATORS ",| "

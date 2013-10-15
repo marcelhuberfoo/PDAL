@@ -41,7 +41,7 @@
 #include <pdal/GlobalEnvironment.hpp>
 #include <pdal/StageFactory.hpp>
 
-#include "Application.hpp"
+#include <pdal/kernel/Application.hpp>
 #include <vector>
 using namespace pdal;
 namespace po = boost::program_options;

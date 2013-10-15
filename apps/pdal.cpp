@@ -33,7 +33,7 @@
 ****************************************************************************/
 
 
-#include "actions/Translate.hpp"
+#include <pdal/kernel/Translate.hpp>
 
 
 
@@ -41,4 +41,5 @@ int main(int argc, char* argv[])
 {
     Translate app(argc, argv);
     return app.run();
+    // return 0;
 }

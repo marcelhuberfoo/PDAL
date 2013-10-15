@@ -32,7 +32,7 @@
 * OF SUCH DAMAGE.
 ****************************************************************************/
 
-#include "AppSupport.hpp"
+#include <pdal/kernel/Support.hpp>
 
 #include <boost/filesystem.hpp>
 #include <boost/algorithm/string.hpp>

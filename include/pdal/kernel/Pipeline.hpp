@@ -12,7 +12,7 @@
 #include <pdal/StageIterator.hpp>
 
 #include <boost/scoped_ptr.hpp>
-#include "AppSupport.hpp"
+#include "Support.hpp"
 
 #include "Application.hpp"
 

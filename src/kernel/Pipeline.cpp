@@ -1,4 +1,4 @@
-#include "Pipeline.hpp"
+#include <pdal/kernel/Pipeline.hpp>
 
 
 Pipeline::Pipeline(int argc, char* argv[])

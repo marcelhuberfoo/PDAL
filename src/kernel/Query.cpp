@@ -1,5 +1,5 @@
 
-#include "Query.hpp"
+#include <pdal/kernel/Query.hpp>
 
 Query::Query(int argc, char* argv[])
     : Application(argc, argv, "pcquery")

@@ -560,6 +560,30 @@ list (APPEND PDAL_CPP ${PDAL_CONFIG_CPP} )
 list (APPEND PDAL_HPP ${PDAL_CONFIG_HPP} )
 
 
+set(PDAL_KERNEL_PATH kernel)
+set(PDAL_KERNEL_HEADERS "${PDAL_HEADERS_DIR}/${PDAL_KERNEL_PATH}")
+set(PDAL_KERNEL_SRC "${PROJECT_SOURCE_DIR}/src/${PDAL_KERNEL_PATH}")
+
+set(PDAL_KERNEL_HPP
+    ${PDAL_KERNEL_HEADERS}/Application.hpp 
+    ${PDAL_KERNEL_HEADERS}/Support.hpp
+    ${PDAL_KERNEL_HEADERS}/Info.hpp
+    ${PDAL_KERNEL_HEADERS}/Pipeline.hpp
+    ${PDAL_KERNEL_HEADERS}/Query.hpp
+    ${PDAL_KERNEL_HEADERS}/Translate.hpp
+)
+
+set(PDAL_KERNEL_CPP
+    ${PDAL_KERNEL_SRC}/Application.cpp
+    ${PDAL_KERNEL_SRC}/Support.cpp
+    ${PDAL_KERNEL_SRC}/Info.cpp
+    ${PDAL_KERNEL_SRC}/Pipeline.cpp
+    ${PDAL_KERNEL_SRC}/Query.cpp
+    ${PDAL_KERNEL_SRC}/Translate.cpp
+)
+
+list (APPEND PDAL_CPP ${PDAL_KERNEL_CPP} )
+list (APPEND PDAL_HPP ${PDAL_KERNEL_HPP} )
 #
 # Group source files for IDE source explorers (e.g. Visual Studio)
 #
