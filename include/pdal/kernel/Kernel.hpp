@@ -1,5 +1,5 @@
 /******************************************************************************
-* Copyright (c) 2011, Michael P. Gerlek (mpg@flaxen.com)
+* Copyright (c) 2013, Howard Butler (hobu.inc@gmail.com)
 *
 * All rights reserved.
 *
@@ -32,82 +32,16 @@
 * OF SUCH DAMAGE.
 ****************************************************************************/
 
-#ifndef INCLUDED_PDAL_KERNEL_SUPPORT_HPP
-#define INCLUDED_PDAL_KERNEL_SUPPORT_HPP
-
-#include <string>
-
-#include <pdal/Options.hpp>
-#include <pdal/Stage.hpp>
-#include <pdal/Writer.hpp>
-#include <pdal/UserCallback.hpp>
+#ifndef INCLUDED_PDAL_KERNEL_HPP
+#define INCLUDED_PDAL_KERNEL_HPP
 
 
-namespace pdal { namespace kernel {
-    
-class app_usage_error : public pdal::pdal_error
-{
-public:
-    app_usage_error(std::string const& msg)
-        : pdal_error(msg)
-    {}
-};
+#include "Application.hpp"
+#include "Support.hpp"
 
+#include "Info.hpp"
+#include "Pipeline.hpp"
+#include "Query.hpp"
+#include "Translate.hpp"
 
-class app_runtime_error : public pdal::pdal_error
-{
-public:
-    app_runtime_error(std::string const& msg)
-        : pdal_error(msg)
-    {}
-};
-
-    
-// this is a static class with some helper functions the cmd line apps need
-class AppSupport
-{
-public:
-    // makes a reader/stage, from just the filename and some other options
-    static pdal::Stage* makeReader(pdal::Options& options);
-
-    // makes a writer, from just the filename and some other options (and the input stage)
-    static pdal::Writer* makeWriter(pdal::Options& options, pdal::Stage& stage);
-
-private:
-
-    AppSupport& operator=(const AppSupport&); // not implemented
-    AppSupport(const AppSupport&); // not implemented
-};
-
-
-class PercentageCallback : public pdal::UserCallback
-{
-public:
-    PercentageCallback(double major=10.0, double minor=2.0);
-    virtual void callback();
-protected:
-    double m_lastMajorPerc;
-    double m_lastMinorPerc;
-    bool m_done;
-};
-
-
-class HeartbeatCallback : public pdal::UserCallback
-{
-public:
-    HeartbeatCallback();
-    virtual void callback();
-private:
-};
-
-class ShellScriptCallback : public PercentageCallback
-{
-public:
-    ShellScriptCallback(std::vector<std::string> const& command);
-    virtual void callback();
-private:
-    std::string m_command;
-};
-
-}} // pdal::kernel
 #endif

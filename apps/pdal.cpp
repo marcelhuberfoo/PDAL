@@ -32,14 +32,17 @@
 * OF SUCH DAMAGE.
 ****************************************************************************/
 
-
-#include <pdal/kernel/Translate.hpp>
+#include <boost/algorithm/string.hpp>
+#include <pdal/kernel/Kernel.hpp>
 
 
 
 int main(int argc, char* argv[])
 {
-    Translate app(argc, argv);
-    return app.run();
+    if (boost::iequals(argv[0], "translate"))
+    {
+        pdal::kernel::Translate app(argc, argv);
+        return app.run();
+    }
     // return 0;
 }

@@ -32,8 +32,8 @@
 * OF SUCH DAMAGE.
 ****************************************************************************/
 
-#ifndef PDAL_APP_ACTION_TRANSLATE_HPP
-#define PDAL_APP_ACTION_TRANSLATE_HPP
+#ifndef INCLUDED_PDAL_KERNEL_TRANSLATE_HPP
+#define INCLUDED_PDAL_KERNEL_TRANSLATE_HPP
 
 #include <pdal/FileUtils.hpp>
 
@@ -48,7 +48,6 @@
 #include <pdal/SpatialReference.hpp>
 #include <pdal/Bounds.hpp>
 
-#include "Support.hpp"
 #include "Application.hpp"
 
 #define SEPARATORS ",| "
@@ -56,8 +55,9 @@
 #include <boost/tokenizer.hpp>
 typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
 
-using namespace pdal;
 namespace po = boost::program_options;
+
+namespace pdal { namespace kernel {
 
 class PDAL_DLL Translate : public Application
 {
@@ -86,5 +86,7 @@ private:
     std::string m_offsets;
     bool m_bForwardMetadata;
 };
+
+}} // pdal::kernel
 
 #endif

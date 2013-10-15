@@ -43,11 +43,12 @@
 
 #include <pdal/kernel/Application.hpp>
 #include <vector>
-using namespace pdal;
+
 namespace po = boost::program_options;
 
 std::string headline("------------------------------------------------------------------------------------------");
 
+namespace pdal { namespace kernel {
 
 Application::Application(int argc, char* argv[], const std::string& appName)
     : m_isDebug(false)
@@ -563,3 +564,4 @@ void Application::parseSwitches()
     return;
 }
 
+}} // pdal::kernel

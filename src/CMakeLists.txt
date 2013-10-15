@@ -568,6 +568,7 @@ set(PDAL_KERNEL_HPP
     ${PDAL_KERNEL_HEADERS}/Application.hpp 
     ${PDAL_KERNEL_HEADERS}/Support.hpp
     ${PDAL_KERNEL_HEADERS}/Info.hpp
+    ${PDAL_KERNEL_HEADERS}/Kernel.hpp
     ${PDAL_KERNEL_HEADERS}/Pipeline.hpp
     ${PDAL_KERNEL_HEADERS}/Query.hpp
     ${PDAL_KERNEL_HEADERS}/Translate.hpp

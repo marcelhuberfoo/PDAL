@@ -32,11 +32,14 @@
 * OF SUCH DAMAGE.
 ****************************************************************************/
 
-#ifndef INCLUDED_APPLICATION_HPP
-#define INCLUDED_APPLICATION_HPP
+#ifndef INCLUDED_PDAL_KERNEL_APPLICATION_HPP
+#define INCLUDED_PDAL_KERNEL_APPLICATION_HPP
 
 #include <pdal/pdal_error.hpp>
 #include <boost/cstdint.hpp>
+#include <cstdarg>
+
+#include "Support.hpp"
 
 
 
@@ -49,23 +52,8 @@
 #  pragma warning(pop)
 #endif
 
+namespace pdal { namespace kernel {
 
-class app_usage_error : public pdal::pdal_error
-{
-public:
-    app_usage_error(std::string const& msg)
-        : pdal_error(msg)
-    {}
-};
-
-
-class app_runtime_error : public pdal::pdal_error
-{
-public:
-    app_runtime_error(std::string const& msg)
-        : pdal_error(msg)
-    {}
-};
 
 
 //
@@ -148,4 +136,5 @@ protected:
     
 };
 
+}} // pdal::kernel
 #endif
