@@ -38,7 +38,7 @@
 namespace pdal { namespace kernel {
 
 Info::Info(int argc, char* argv[])
-    : Application(argc, argv, "pcinfo")
+    : Application(argc, argv, "info")
     , m_inputFile("")
     , m_showStats(false)
     , m_showSchema(false)

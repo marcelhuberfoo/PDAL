@@ -46,8 +46,7 @@ BOOST_AUTO_TEST_SUITE(pcpipelineTest)
 
 static std::string appName()
 {
-    const std::string app = Support::binpath(Support::exename("pcpipeline"));
-    BOOST_CHECK(pdal::FileUtils::fileExists(app));
+    const std::string app = Support::binpath(Support::exename("pdal pipeline"));
     return app;
 }
 

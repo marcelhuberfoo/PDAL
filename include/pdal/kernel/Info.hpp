@@ -52,7 +52,6 @@
 #define SEPARATORS ",| "
 typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
 
-using namespace pdal;
 
 namespace pdal { namespace kernel {
 

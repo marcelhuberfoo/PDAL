@@ -38,7 +38,7 @@
 namespace pdal { namespace kernel {
     
 Pipeline::Pipeline(int argc, char* argv[])
-    : Application(argc, argv, "pcpipeline")
+    : Application(argc, argv, "pipeline")
     , m_inputFile("")
     , m_validate(false)
     , m_numPointsToWrite(0)

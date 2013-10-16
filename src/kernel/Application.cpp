@@ -501,7 +501,7 @@ void Application::outputHelp()
 void Application::outputVersion()
 {
     std::cout << headline << std::endl;
-    std::cout << m_appName << " (" << pdal::GetFullVersionString() << ")\n";
+    std::cout << "pdal " << m_appName << " (" << pdal::GetFullVersionString() << ")\n";
     std::cout << headline << std::endl;
     std::cout << std::endl;
 }

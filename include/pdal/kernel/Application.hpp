@@ -52,6 +52,7 @@
 #  pragma warning(pop)
 #endif
 
+namespace po = boost::program_options;
 namespace pdal { namespace kernel {
 
 

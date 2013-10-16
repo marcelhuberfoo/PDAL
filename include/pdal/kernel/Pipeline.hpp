@@ -46,8 +46,6 @@
 
 #include "Application.hpp"
 
-namespace po = boost::program_options;
-
 namespace pdal { namespace kernel {
     
 class PDAL_DLL Pipeline : public Application

@@ -55,7 +55,6 @@
 #include <boost/tokenizer.hpp>
 typedef boost::tokenizer<boost::char_separator<char> > tokenizer;
 
-namespace po = boost::program_options;
 
 namespace pdal { namespace kernel {
 

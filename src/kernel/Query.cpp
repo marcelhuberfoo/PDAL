@@ -37,7 +37,7 @@
 namespace pdal { namespace kernel {
     
 Query::Query(int argc, char* argv[])
-    : Application(argc, argv, "pcquery")
+    : Application(argc, argv, "query")
     , m_sourceFile("")
     , m_candidateFile("")
     , m_outputStream(0)
