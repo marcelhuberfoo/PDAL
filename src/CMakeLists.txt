@@ -716,7 +716,9 @@ else()
     "${P2G_LIBRARY}"
     "${GEOS_LIBRARY}"
     "${HEXER_LIBRARY}"
-    "${ORACLE_LIBRARY}")
+    "${ORACLE_LIBRARY}"
+    "${NITRO_LIBRARIES}"
+    "${SOCI_LIBRARIES}")
 endif()
 
 message(STATUS "Using boost lib: ${Boost_LIBRARIES}")
