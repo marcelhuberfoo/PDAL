@@ -1,6 +1,6 @@
 git clone https://github.com/PDAL/PDAL.git pdal
 cd pdal
-
+git checkout issues/192-merge-pc2pc-pipeline
 cmake   -G "Unix Makefiles"  \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \

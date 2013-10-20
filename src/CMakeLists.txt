@@ -711,14 +711,14 @@ else()
     "${GEOTIFF_LIBRARY}"
     "${GDAL_LIBRARY}"
     "${LASZIP_LIBRARY}"
-    "${LIBXML2_LIBRARIES}"
+    ${LIBXML2_LIBRARIES}
     "${PYTHON_LIBRARY}"
     "${P2G_LIBRARY}"
     "${GEOS_LIBRARY}"
     "${HEXER_LIBRARY}"
     "${ORACLE_LIBRARY}"
-    "${NITRO_LIBRARIES}"
-    "${SOCI_LIBRARIES}")
+    ${NITRO_LIBRARIES}
+    ${SOCI_LIBRARIES})
 endif()
 
 message(STATUS "Using boost lib: ${Boost_LIBRARIES}")
