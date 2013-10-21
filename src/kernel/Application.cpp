@@ -46,7 +46,6 @@
 
 namespace po = boost::program_options;
 
-std::string headline("------------------------------------------------------------------------------------------");
 
 namespace pdal { namespace kernel {
 
@@ -318,6 +317,7 @@ std::ostream& displayDriver(    std::ostream& strm,
     if (bDoLink)
         strm << "`_ ";
     strm << std::endl;
+    std::string headline("------------------------------------------------------------------------------------------");
 
     strm << headline << std::endl;
     
@@ -338,6 +338,7 @@ void Application::outputDrivers()
     pdal::StageFactory factory;
     std::map<std::string, pdal::StageInfo> const& drivers = factory.getStageInfos();
     typedef std::map<std::string, pdal::StageInfo>::const_iterator Iterator;
+    std::string headline("------------------------------------------------------------------------------------------");
 
     std::cout << headline << std::endl;
     std::cout << "PDAL Drivers" << " (" << pdal::GetFullVersionString() << ")" <<std::endl;
@@ -454,6 +455,7 @@ void Application::outputOptions(std::string const& driverName)
     typedef std::map<std::string, pdal::StageInfo>::const_iterator Iterator;
     
     Iterator i = drivers.find(driverName);
+    std::string headline("------------------------------------------------------------------------------------------");
     
     std::cout << headline << std::endl;
     std::cout << "PDAL Options" << " (" << pdal::GetFullVersionString() << ")" <<std::endl;
@@ -488,6 +490,8 @@ void Application::outputHelp()
         std::cout << std::endl;
     }
 
+    std::string headline("------------------------------------------------------------------------------------------");
+
     std::cout <<"\nFor more information, see the full documentation for PDAL at:\n";
     
     std::cout << "  http://pointcloud.org/\n";
@@ -500,6 +504,7 @@ void Application::outputHelp()
 
 void Application::outputVersion()
 {
+    std::string headline("------------------------------------------------------------------------------------------");
     std::cout << headline << std::endl;
     std::cout << "pdal " << m_appName << " (" << pdal::GetFullVersionString() << ")\n";
     std::cout << headline << std::endl;
