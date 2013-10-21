@@ -726,14 +726,14 @@ message(STATUS "Using boost lib: ${Boost_LIBRARIES}")
 if (WIN32)
 	if (CMAKE_VERSION VERSION_GREATER 2.8.6)
 		target_link_libraries(${APPS_CPP_DEPENDENCIES}
-                       LINK_PRIVATE general "${Boost_LIBRARIES}" "${Boost_FILESYSTEM_LIBRARY}")
+                       LINK_PRIVATE general ${Boost_LIBRARIES} "${Boost_FILESYSTEM_LIBRARY}")
 	else()
 		target_link_libraries(${APPS_CPP_DEPENDENCIES}
-                        "${Boost_LIBRARIES}" "${Boost_FILESYSTEM_LIBRARY}")
+                        ${Boost_LIBRARIES} "${Boost_FILESYSTEM_LIBRARY}")
 	endif()
 else()
 	target_link_libraries(${APPS_CPP_DEPENDENCIES}
-                      "${Boost_LIBRARIES}" )
+                      ${Boost_LIBRARIES} )
 
 endif(WIN32)
 
