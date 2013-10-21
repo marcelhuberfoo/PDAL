@@ -73,7 +73,8 @@ int main(int argc, char* argv[])
     
     if (argc < 2)
     {
-        outputVersion(); return 0;
+        std::cerr << "Action not specified!" << std::endl << std::endl;
+        outputVersion(); return 1;
     }
     
     action_args.push_back(argv[0]);
@@ -131,6 +132,7 @@ int main(int argc, char* argv[])
         return app.run();
     }
     
+    std::cerr << "Action '" << action <<"' not recognized" << std::endl << std::endl;
     outputVersion();
     return 1;
 }
