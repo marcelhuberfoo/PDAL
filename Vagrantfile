@@ -12,9 +12,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
-  #
+  config.vm.provider :virtualbox do |vb|
+     vb.customize ["modifyvm", :id, "--memory", "1024"]
+     vb.customize ["modifyvm", :id, "--cpus", "2"]   
+     vb.customize ["modifyvm", :id, "--ioapic", "on"]
+   end  
+
   ppaRepos = [
-	  "ppa:ubuntugis/ppa"
+	  "ppa:ubuntugis/ppa",
+    "ppa:apokluda/boost1.53"
   ]
 
   packageList = [
@@ -30,10 +36,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	  "libproj-dev",
 	  "libtiff4-dev",
 	  "libxml2-dev",
-    "libboost1.48-all-dev",
+    "libboost1.53-all-dev",
     "libbz2-dev",
     "libsqlite0-dev",
-    "cmake-curses-gui"
+    "cmake-curses-gui",
+    "screen"
   ];
 
   if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*/id").empty?
