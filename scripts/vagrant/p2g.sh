@@ -3,6 +3,6 @@
 
 git clone https://github.com/CRREL/points2grid.git
 cd points2grid
-cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_CXX_FLAGS="-fPIC" -DCMAKE_C_FLAGS="-fPIC"
+cmake . -DCMAKE_INSTALL_PREFIX=/usr
 make
 sudo make install

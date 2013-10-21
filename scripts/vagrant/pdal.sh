@@ -1,6 +1,15 @@
+NUMTHREADS=4
+if [[ -f /sys/devices/system/cpu/online ]]; then
+	# Calculates 1.5 times physical threads
+	NUMTHREADS=$(( ( $(cut -f 2 -d '-' /sys/devices/system/cpu/online) + 1 ) * 15 / 10  ))
+fi
+#NUMTHREADS=1 # disable MP
+export NUMTHREADS
+
+
 git clone https://github.com/PDAL/PDAL.git pdal
 cd pdal
-git checkout issues/192-merge-pc2pc-pipeline
+sudo git checkout issues/192-merge-pc2pc-pcpipeline
 cmake   -G "Unix Makefiles"  \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
@@ -17,6 +26,6 @@ cmake   -G "Unix Makefiles"  \
         -DWITH_NITRO=ON \
         -DWITH_PGPOINTCLOUD=ON
 
-make
+make -j $NUMTHREADS
 sudo make install
 
