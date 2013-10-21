@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 
     
     int count(argc - 1); // remove the 1st argument
-    char** args = &argv[1];
+    const char** args = const_cast<const char**>(&argv[1]);
     
     
     if (variables.count("version") || variables.count("help"))

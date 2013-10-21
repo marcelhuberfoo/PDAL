@@ -51,7 +51,7 @@ namespace pdal { namespace kernel {
 class PDAL_DLL Pipeline : public Application
 {
 public:
-    Pipeline(int argc, char* argv[]);
+    Pipeline(int argc, const char* argv[]);
     int execute();
 
 private:

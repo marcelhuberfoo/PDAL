@@ -76,7 +76,7 @@ public:
 
 protected:
     // this is protected; your derived class ctor will be the public entry point
-    Application(int argc, char* argv[], const std::string& appName);
+    Application(int argc, const char* argv[], const std::string& appName);
     ~Application();
 
     // implement this, with calls to addOptionSet()
@@ -118,7 +118,7 @@ private:
     bool m_showVersion;
     bool m_showTime;
     const int m_argc;
-    char** m_argv;
+    const char** m_argv;
     const std::string m_appName;
     bool m_hardCoreDebug;
     std::vector<std::string> m_heartbeat_shell_command;

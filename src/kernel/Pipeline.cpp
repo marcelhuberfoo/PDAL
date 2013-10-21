@@ -37,7 +37,7 @@
 #include <boost/scoped_ptr.hpp>
 namespace pdal { namespace kernel {
     
-Pipeline::Pipeline(int argc, char* argv[])
+Pipeline::Pipeline(int argc, const char* argv[])
     : Application(argc, argv, "pipeline")
     , m_inputFile("")
     , m_validate(false)

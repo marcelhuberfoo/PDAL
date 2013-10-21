@@ -36,7 +36,7 @@
 
 namespace pdal { namespace kernel {
     
-Query::Query(int argc, char* argv[])
+Query::Query(int argc, const char* argv[])
     : Application(argc, argv, "query")
     , m_sourceFile("")
     , m_candidateFile("")

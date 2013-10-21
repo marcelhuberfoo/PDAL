@@ -75,7 +75,7 @@ public:
 class Query : public Application
 {
 public:
-    Query(int argc, char* argv[]);
+    Query(int argc, const char* argv[]);
     int execute(); // overrride
     
     

@@ -61,7 +61,7 @@ namespace pdal { namespace kernel {
 class PDAL_DLL Translate : public Application
 {
 public:
-    Translate(int argc, char* argv[]);
+    Translate(int argc, const char* argv[]);
     int execute();
 
 private:

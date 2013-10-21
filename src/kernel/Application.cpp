@@ -50,7 +50,7 @@ std::string headline("----------------------------------------------------------
 
 namespace pdal { namespace kernel {
 
-Application::Application(int argc, char* argv[], const std::string& appName)
+Application::Application(int argc, const char* argv[], const std::string& appName)
     : m_isDebug(false)
     , m_verboseLevel(0)
     , m_showHelp(false)

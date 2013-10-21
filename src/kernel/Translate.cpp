@@ -37,7 +37,7 @@
 
 namespace pdal { namespace kernel {
 
-Translate::Translate(int argc, char* argv[])
+Translate::Translate(int argc, const char* argv[])
     : Application(argc, argv, "translate")
     , m_inputFile("")
     , m_outputFile("")

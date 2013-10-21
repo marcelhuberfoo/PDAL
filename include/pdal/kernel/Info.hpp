@@ -58,7 +58,7 @@ namespace pdal { namespace kernel {
 class PDAL_DLL Info : public Application
 {
 public:
-    Info(int argc, char* argv[]);
+    Info(int argc, const char* argv[]);
     int execute(); // overrride
 
 private:
