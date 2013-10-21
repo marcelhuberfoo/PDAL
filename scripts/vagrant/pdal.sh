@@ -1,4 +1,4 @@
-NUMTHREADS=4
+NUMTHREADS=2
 if [[ -f /sys/devices/system/cpu/online ]]; then
 	# Calculates 1.5 times physical threads
 	NUMTHREADS=$(( ( $(cut -f 2 -d '-' /sys/devices/system/cpu/online) + 1 ) * 15 / 10  ))
@@ -13,7 +13,7 @@ sudo git checkout issues/192-merge-pc2pc-pcpipeline
 cmake   -G "Unix Makefiles"  \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
-        -DPDAL_EMBED_BOOST=ON \
+        -DPDAL_EMBED_BOOST=OFF \
         -DWITH_GDAL=ON \
         -DWITH_ICONV=ON \
         -DWITH_GEOTIFF=ON \
