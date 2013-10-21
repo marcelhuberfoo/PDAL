@@ -70,6 +70,12 @@ int main(int argc, char* argv[])
         ("help,h", po::value<bool>()->zero_tokens()->implicit_value(true), "Print help message")
             ;
     std::vector<std::string> action_args;
+    
+    if (argc < 2)
+    {
+        outputVersion(); return 0;
+    }
+    
     action_args.push_back(argv[0]);
     action_args.push_back(argv[1]);
 
