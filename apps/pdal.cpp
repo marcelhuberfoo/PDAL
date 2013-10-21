@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
     const char** args = const_cast<const char**>(&argv[1]);
     
     
-    if (variables.count("version") || variables.count("help"))
+    if (variables.count("version") || variables.count("help") || !variables.count("action"))
     {
         outputVersion();
         return 0;
