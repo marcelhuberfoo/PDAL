@@ -1,26 +1,23 @@
-USR_LOCAL="/usr/local"
+USR_LOCAL="/usr"
 USR="/usr"
-OPT="/opt/local"
+OPT="/usr"
 TIFF_HOME=$USR_LOCAL
 LASZIP_HOME=$USR_LOCAL
 LIBXML2_HOME=$OPT
 GEOTIFF_HOME=$USR_LOCAL
 P2G_HOME=$USR_LOCAL
-SO_EXT=dylib
+SO_EXT=so
 EMBED=ON
 CC=/usr/bin/gcc
 CXX=/usr/bin/g++
-CPPCLAGS=-I/usr/pgsql-9.2/include
 
-ORACLE_HOME=$HOME/oracle
-export ORACLE_HOME
 CONFIG="Unix Makefiles"
 
 if ! [ -z "$1" ]; then
     CONFIG="$1"
 fi
 
-cmake   -G "$CONFIG"  \
+ccmake   -G "$CONFIG"  \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         -DCMAKE_INSTALL_PREFIX=${HOME}/pdal \
         -DPDAL_EMBED_BOOST=${EMBED} \
@@ -42,8 +39,11 @@ cmake   -G "$CONFIG"  \
         -DLIBXML2_LIBRARIES=${LIBXML2_HOME}/lib/libxml2.${SO_EXT} \
         -DTIFF_INCLUDE_DIR=/${TIFF_HOME}/include \
         -DTIFF_LIBRARY=${TIFF_HOME}/lib/libtiff.${SO_EXT} \
-	-DPOSTGRESQL_INCLUDE_DIR=${USR_LOCAL}/pgsql/9.2/include \
-	-DPOSTGRESQL_LIBRARIES=${USR_LOCAL}/pgsql/9.2/lib/libpq.${SO_EXT} \
+	-DPOSTGRESQL_INCLUDE_DIR=${USR_LOCAL}/include \
+	-DPOSTGRESQL_LIBRARIES=${USR_LOCAL}/lib/libpq.${SO_EXT} \
+	-DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
+	-DPYTHON_LIBRARY=/usr/lib/libpython2.7.${SO_EXT} \
+	-DNUMPY_INCLUDE_DIR=${HOME}/.venv27/lib/python2.7/site-packages/numpy/core/include \
 	../PDAL
 
 

@@ -36,8 +36,6 @@
 #define PDAL_PLANG_PYTHON_ENVIRONMENT_H
 
 #include <pdal/pdal_internal.hpp>
-
-#include <pdal/pdal_internal.hpp>
 //#include <pdal/PointBuffer.hpp>
 
 //#include <boost/cstdint.hpp>

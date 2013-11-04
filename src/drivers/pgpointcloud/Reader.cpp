@@ -467,7 +467,7 @@ boost::uint32_t Iterator::readBufferImpl(PointBuffer& user_buffer)
     // Is the cache for patches ready?
     if ( ! m_buffer )
     {
-        uint32_t max_points = getReader().getMaxPoints();
+        pdalboost::uint32_t max_points = getReader().getMaxPoints();
         m_buffer = new pdal::PointBuffer(getReader().getSchema(), max_points);
         m_buffer->setNumPoints(0);
         m_buffer_position = 0;
