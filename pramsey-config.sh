@@ -44,7 +44,7 @@ ccmake   -G "$CONFIG"  \
 	-DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
 	-DPYTHON_LIBRARY=/usr/lib/libpython2.7.${SO_EXT} \
 	-DNUMPY_INCLUDE_DIR=${HOME}/.venv27/lib/python2.7/site-packages/numpy/core/include \
-	../PDAL
+	../`basename $PWD`
 
 
 # -DLASZIP_INCLUDE_DIR=${LASZIP_HOME}/include \
